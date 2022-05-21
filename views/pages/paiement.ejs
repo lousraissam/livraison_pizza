@@ -1,0 +1,77 @@
+<!-- Barre de navigation -->
+<%- include('../partials/head'); %>
+
+<!-- Contenu -->
+<main>
+    <% if(err) {%>
+        <div class="div-form" id="div-contains" style="padding-top: 150px;">
+            <h1 id="h1-connexion">Votre paiement a bien été validé.</h1>
+            <img src="../medias/images/livreur/livreur.png" style="margin-bottom:15%;">
+            <a href="/accueil"><button class="btn button">RETOUR VERS LE SITE MARCHAND</button></a>
+        </div>
+    <%} else {%>
+        <div class="container" id="div-paiement">
+            <form clas="form-paiement" action="/paiement" method="post">
+                <div class="row">
+                    <div class="col">
+                        <h3 class="title">Paiement</h3>
+                        <div class="inputBox">
+                            <span>cartes acceptées :</span>
+                            <img src="../medias/images/paiement.png" alt="">
+                        </div>
+                        <div class="inputBox">
+                            <span>Nom et prénom  :</span>
+                            <input type="text" placeholder="John" name="nom" required>
+                        </div>
+                        <div class="inputBox">
+                            <span>Numéro de la carte :</span>
+                            <input type="text" placeholder="1035-0007-1024-8298" name="numcard" required pattern="\d*" minlength="16" maxlength="16"  ; >
+                        </div>
+                        <div class="flex">
+                            <div class="inputBox" style="margin: auto;">
+                                <span> Expire le :</span>
+                                <select style="width: 150px; margin-right: 20px;" id="month" name="month">
+                                    <option selected>Janvier</option>
+                                    <option>Février</option>
+                                    <option>Mars</option>
+                                    <option>Avril</option>
+                                    <option>Mai</option>
+                                    <option>Juin</option>
+                                    <option>Juillet</option>
+                                    <option>Août</option>
+                                    <option>Septembre</option>
+                                    <option>Octobre</option>
+                                    <option>Novembre</option>
+                                    <option>Décembre</option>
+                                  </select>
+                            </div>
+                            <div class="inputBox">
+                                <span>Année :</span>
+                                <input type="number" placeholder="2024" name="year" required min="2022" max="2026">
+                            </div>
+                        </div>
+                        <div class="inputBox">
+                            <span>CVV :</span>
+                            <input type="text" placeholder="546" name="cvv" required pattern="\d*" minlength="3" maxlength="3">
+                        </div>
+                        
+                    </div>
+                   
+                </div>
+                <button type="submit" class="button button-submit" value="accept">Valider votre paiement</button>
+              
+
+            </form>
+  
+        </div>
+    <%}%>
+</main>
+
+<!-- Barre de fin -->
+</br>
+</br>
+</br>
+</br></br>
+</br>
+
+<%- include('../partials/footer'); %>

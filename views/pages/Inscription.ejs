@@ -1,0 +1,52 @@
+<!-- Barre de navigation -->
+<%- include('../partials/head'); %>
+
+<!-- Contenu -->
+<main>
+    <div class="div-form" id="div-contains" style="padding-top: 150px;">
+        <h1 id="h1-connexion">Inscription</h1>
+        <form class="form-signin" id="form-signin" action="/inscription" method="post">
+            <div class="form-group">
+                <label class="label-form" for="name">Nom</label>
+                <input type="name" class="form-control" aria-describedby="emailHelp" placeholder="par exemple : Iohn" name="nom" required>
+            </div>
+            <div class="form-group">
+                <label class="label-form" for="name">Prénom</label>
+                <input type="name" class="form-control" aria-describedby="emailHelp" placeholder="par exemple : Smith" name="prenom" required>
+            </div>
+
+            <div class="form-group">
+                <label class="label-form" for="email">Adresse</label>
+                <input type="address" class="form-control" aria-describedby="emailHelp" placeholder="par exemple : 23 rue du Paradis, 75004 Paris" name="adresse" required>
+            </div>
+
+            <div class="form-group">
+                <label class="label-form" for="email">Adresse email</label>
+                <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="par exemple : example@test.fr" name="mail" required>
+            </div>
+
+            <div class="form-group">
+                <label for="mdp">Mot de passe</label>
+                <input type="password" class="form-control" name="mdp" required>
+            </div>
+
+            <button type="submit" class="button button-submit" value="accept">Envoyez</button>
+            <% if(!err) { %>
+                <div class="alert alert-warning" role="alert">
+                    Attention : ce compte n'existe pas.
+                </div>
+            <% } %>
+            <small>En continuant, vous acceptez notre utilisation de vos données personnelles pour vous offrir une expérience personnalisée, ainsi que pour mieux comprendre et améliorer notre service.</small>
+        </form>
+    </div>
+</main>
+
+<script>
+    if(window.location.href.indexOf("/accueil_livreur") > -1 || window.location.href.indexOf("/livraison") > -1) {
+        document.getElementById("h1-connexion").innerHTML = "Espace livraison";
+        document.getElementById("form-signin").setAttribute("action", "/accueil_livreur");
+    }
+</script>
+
+<!-- Barre de fin -->
+<%- include('../partials/footer'); %>
