@@ -5,6 +5,8 @@ drop table if exists ingredients cascade;
 drop table if exists commandes_details cascade;
 drop table if exists commandes cascade;
 drop table if exists livreurs cascade;
+drop table if exists clients cascade;
+
 
 
 create table entrees (id_entree integer primary key, nom text not null, description text not null, prix integer, deroulant varchar(3) not null);
