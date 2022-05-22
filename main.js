@@ -23,10 +23,10 @@ serv.use(bodyParser.json())
 
 /* Connexion à la base de donnée PostgreSQL */
 const pool = new Pool({
-    user: "Issam",
+    user: "Postgres",
     host: "localhost",
     database: "testdb",
-    password: "Mascara29",
+    password: "",
     port: 5432
 });
 
